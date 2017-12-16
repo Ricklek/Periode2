@@ -16,7 +16,7 @@ pygame.display.set_caption('Badmeester')
 
 clock = pygame.time.Clock()
 
-block_size = 10
+block_size = 20
 FPS = 30
 
 font = pygame.font.SysFont(None, 25)
@@ -88,8 +88,18 @@ def gameLoop():
         pygame.draw.rect(gameDisplay, black, [lead_x, lead_y, block_size, block_size])
         pygame.display.update()
 
-    if lead_x >= randPersonX and lead_x <= randPersonX + PersonThickness:
-        if lead_y >= randPersonY and lead_y <= randPersonY + PersonThickness:
+#        if lead_x >= randPersonX and lead_x <= randPersonX + PersonThickness:
+#         if lead_y >= randPersonY and lead_y <= randPersonY + PersonThickness:
+#            randPersonX = round(random.randrange(0, display_width - block_size))#/10.0) * 10.0
+#            randPersonY = round(random.randrange(0, display_height - block_size))#/10.0) * 10.0
+
+        if lead_x > randPersonX and lead_x < randPersonX + PersonThickness or lead_x + block_size > randPersonX and lead_x + block_size < randPersonX + PersonThickness:
+         if lead_y > randPersonY and lead_y < randPersonY + PersonThickness or lead_y + block_size > randPersonY and lead_y + block_size < randPersonY + PersonThickness:
+            randPersonX = round(random.randrange(0, display_width - block_size))#/10.0) * 10.0
+            randPersonY = round(random.randrange(0, display_height - block_size))#/10.0) * 10.0
+
+
+         elif lead_y + block_size > randPersonY and lead_y + block_size < randPersonY + PersonThickness:
             randPersonX = round(random.randrange(0, display_width - block_size))#/10.0) * 10.0
             randPersonY = round(random.randrange(0, display_height - block_size))#/10.0) * 10.0
 
