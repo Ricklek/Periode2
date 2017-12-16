@@ -47,7 +47,12 @@ def badmeester(block_size, badmeesterList):
     gameDisplay.blit(head, (badmeesterList[-1][0], badmeesterList[-1][1]))
 
     for XnY in badmeesterList[:-1]:
-        pygame.draw.rect(gameDisplay, white, [XnY[0], XnY[1], block_size, block_size])
+        pygame.draw.rect(gameDisplay,
+                         white,
+                         [XnY[0],
+                          XnY[1],
+                          block_size,
+                          block_size])
 
 def text_objects(text, color, size):
     if size == "small":
@@ -76,8 +81,10 @@ def gameLoop():
     lead_x_change = 10
     lead_y_change = 0
 
-    randPersonX = round (random.randrange(0, display_width-block_size))#/10.0)*10.0
-    randPersonY = round (random.randrange(0, display_height-block_size))#/10.0)*10.0
+    randPersonX = round (random.randrange(0,
+                                          display_width-block_size))#/10.0)*10.0
+    randPersonY = round (random.randrange(0,
+                                          display_height-block_size))#/10.0)*10.0
 
     while not gameExit:
 
@@ -134,8 +141,18 @@ def gameLoop():
         gameDisplay.fill(white)
 
         PersonThickness = 30
-        pygame.draw.rect(gameDisplay, red, [randPersonX, randPersonY, PersonThickness, PersonThickness])
-        pygame.draw.rect(gameDisplay, white, [lead_x, lead_y, block_size, block_size])
+        pygame.draw.rect(gameDisplay,
+                         red,
+                         [randPersonX,
+                          randPersonY,
+                          PersonThickness,
+                          PersonThickness])
+        pygame.draw.rect(gameDisplay,
+                         white,
+                         [lead_x,
+                          lead_y,
+                          block_size,
+                          block_size])
 
         badmeesterList = []
         badmeesterhead = []
@@ -143,8 +160,6 @@ def gameLoop():
         badmeesterhead.append(lead_y)
         badmeesterList.append(badmeesterhead)
         badmeester(block_size, badmeesterList)
-
-        score()
 
         pygame.display.update()
 
@@ -155,13 +170,17 @@ def gameLoop():
 
         if lead_x > randPersonX and lead_x < randPersonX + PersonThickness or lead_x + block_size > randPersonX and lead_x + block_size < randPersonX + PersonThickness:
          if lead_y > randPersonY and lead_y < randPersonY + PersonThickness or lead_y + block_size > randPersonY and lead_y + block_size < randPersonY + PersonThickness:
-            randPersonX = round(random.randrange(0, display_width - block_size))#/10.0) * 10.0
-            randPersonY = round(random.randrange(0, display_height - block_size))#/10.0) * 10.0
+            randPersonX = round(random.randrange(0,
+                                                 display_width - block_size))#/10.0) * 10.0
+            randPersonY = round(random.randrange(0,
+                                                 display_height - block_size))#/10.0) * 10.0
 
 
          elif lead_y + block_size > randPersonY and lead_y + block_size < randPersonY + PersonThickness:
-            randPersonX = round(random.randrange(0, display_width - block_size))#/10.0) * 10.0
-            randPersonY = round(random.randrange(0, display_height - block_size))#/10.0) * 10.0
+            randPersonX = round(random.randrange(0,
+                                                 display_width - block_size))#/10.0) * 10.0
+            randPersonY = round(random.randrange(0,
+                                                 display_height - block_size))#/10.0) * 10.0
 
         clock.tick(FPS)
 
@@ -170,3 +189,5 @@ def gameLoop():
 
 
 gameLoop()
+
+score = score + 10
