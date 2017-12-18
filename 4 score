@@ -28,8 +28,7 @@ medfont = pygame.font.SysFont("comicsansms", 50)
 largefont = pygame.font.SysFont("comicsansms", 80)
 
 def score(score):
-    screen.blit(smallfont.render("score: "+ str(score), 1, black), display_width
-                -50, 0)
+    text = smallfont.render("Score: "+str(score), True, black)
     gameDisplay.blit(text[0,0])
 
 score = 0
