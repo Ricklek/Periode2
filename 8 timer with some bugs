@@ -167,7 +167,6 @@ def gameLoop():
         SharkThickness = 20
         gameDisplay.blit(personimg, (randPersonX, randPersonY))
         gameDisplay.blit(sharkimg, (randSharkX, randSharkY))
-        gameDisplay.blit(img, pygame.rect.Rect(0,0, 128, 128))
 
         badmeesterList = []
         badmeesterhead = []
@@ -177,9 +176,6 @@ def gameLoop():
         badmeester(block_size, badmeesterList)
         display_score(score)
         display_difference(difference)
-
-
-        print(difference)
 
         pygame.display.update()
 
@@ -213,7 +209,7 @@ def gameLoop():
                                                  display_height - block_size))  # /10.0) * 10.0
 
         if difference >= 60:
-          gameExit == True
+          gameExit = True
 
         clock.tick(FPS)
 
