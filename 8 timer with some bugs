@@ -25,7 +25,7 @@ sharkimg = pygame.image.load('shark.png')
 clock = pygame.time.Clock()
 
 block_size = 20
-FPS = 15
+FPS = 20
 score = 0
 difference = 0
 
@@ -86,11 +86,9 @@ def gameLoop():
     global direction
     direction = "right"
     score = 0
+    difference = 0
     gameExit = False
     gameOver = False
-
-    later = datetime.now()
-    difference = (later - now).total_seconds()
 
     lead_x = display_width / 2
     lead_y = display_height / 2
@@ -162,6 +160,9 @@ def gameLoop():
 
         gameDisplay.blit(seaimg, [0, 0])
 
+        later = datetime.now()
+        difference = (later - now).total_seconds()
+
         PersonThickness = 20
         SharkThickness = 20
         gameDisplay.blit(personimg, (randPersonX, randPersonY))
@@ -176,6 +177,9 @@ def gameLoop():
         badmeester(block_size, badmeesterList)
         display_score(score)
         display_difference(difference)
+
+
+        print(difference)
 
         pygame.display.update()
 
@@ -208,7 +212,7 @@ def gameLoop():
             randSharkY = round(random.randrange(0,
                                                  display_height - block_size))  # /10.0) * 10.0
 
-        if difference >= 600:
+        if difference >= 60:
           gameExit == True
 
         clock.tick(FPS)
