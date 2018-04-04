@@ -16,7 +16,7 @@ pygame.display.set_caption('Badmeester')
 
 img = pygame.image.load('lifeguard.png')
 personimg = pygame.image.load('person1.png')
-seaimg = pygame.image.load('sea.png')
+riverimg = pygame.image.load('river.png')
 
 clock = pygame.time.Clock()
 
